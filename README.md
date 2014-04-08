@@ -1,7 +1,7 @@
 jQuery standbyTimer
 ===================
 
-jQuery standbyTimer is a little jquery plugin that gives you a complete timer for your applications.
+jQuery standbyTimer is a little jquery plugin that gives you a timer that will reset your application within a specific time.
 It initializes a timer when clicking on a page element.
 If a click has been detected before the end of the timer, it will execute a function you can specify.
 If no click has been detected, the timer will naturally restart without any further actions, and will be ready for a new click events.
@@ -36,5 +36,9 @@ No more action will be done.
 
 
 standbyTimer has been tested under and will work for further Jquery 2.1.0.
+
+For contacts:
+edouard.kombo@gmail.com
+@edouardkombo on Twitter.
 
 Enjoy!
