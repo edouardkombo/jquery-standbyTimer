@@ -17,9 +17,10 @@
         var config = {
             timer: 120,        //Timer in seconds
             interval: 1000,    //Timer interval
-            action: 'nothing', //Execute a method
-            stop: false     //Stop the timer at the end of the period
-        };
+            onComplete: null, //Execute a method
+            stop: false,       //Stop the timer at the end of the period
+            debug: false
+        };       
         
         if (settings) {
             $.extend(config, settings);
@@ -51,11 +52,10 @@
                     clickOnSelector  = 0;                    
                     
                     //Do optional actions
-                    if ( $.isFunction(config.action) ) {
-                        config.action();
-                    } else {
-                        console.log('//jQuery.standyTimer.js: action is not a function.');
+                    if ($.isFunction(config.onComplete)) {
+                        config.onComplete.call(this);
                     }
+
                 }
             }
             
@@ -67,6 +67,11 @@
                     ghostTimer = 1;
                 }
             });
+            
+            //Show debug in console
+            if (config.debug === true) {
+                console.log('Timer:' + ghostTimer + ' // ClickOnPage:' + clickOnSelector );
+            }            
             
         }, config.interval);
         

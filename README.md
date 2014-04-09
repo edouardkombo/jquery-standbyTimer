@@ -10,29 +10,29 @@ You can stop the timer (clear interval).
 1) Examples - How to get it work?
 ---------------------------------
 
-Simple example, when you click on the body, it inits a 10s timer with an interval of 1s. The timer will execute endlessly.
+Simple example, when you click on the body, a 10s timer with a 1s interval will be initialized.
+The plugin will work endlessly.
 
     $.standbyTimer('body', {timer: 10, interval: 1000} );
 
 
-Here, when you click on the body, it inits a 10s timer with an interval of 1s, that will execute test() function  at the end of the timer.
-At the end of the first cycle, standbyTimer will listen for a click event to repeat the operation.
+Timer with a callback function.
+At the end of the cycle, if a click has been detected within specified time, a callback function will be executed.
+If no clicks has been detected within the time, the callback function will be ignored. 
 
-    function test() {
-        alert('Simple test!');
-    }
-
-    $.standbyTimer('body', {timer: 10, interval: 1000, action: test} );
+    $.standbyTimer('body', {timer: 10, interval: 1000, onComplete: function(){
+        alert('Timer has ended!');
+    }} );
 
 
-Here, we will do a 10s timer with an interval of 1s, that will stop at the first cycle and executes test() function.
-No more action will be done.
+Stop the timer at the end of a cycle.
 
-    function test() {
-        alert('Simple test!');
-    }
+    $.standbyTimer('body', {timer: 10, interval: 1000, stop: true} );
 
-    $.standbyTimer('body', {timer: 10, interval: 1000, stop: true, action: test} );
+
+Enable debug mode for developers.
+
+    $.standbyTimer('body', {timer: 10, interval: 1000, debug: true} );
 
 
 standbyTimer has been tested under and will work for further Jquery 2.1.0.
